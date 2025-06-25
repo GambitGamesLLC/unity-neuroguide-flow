@@ -293,7 +293,7 @@ MonoBehaviour:
       type: {class: WaterSystemGlobalSettings, ns: UnityEngine.Rendering.HighDefinition, asm: Unity.RenderPipelines.HighDefinition.Runtime}
       data:
         m_Version: 1
-        m_EnableMaskAndCurrentWaterDecals: 0
+        m_EnableMaskAndCurrentWaterDecals: 1
     - rid: 6121695394400567497
       type: {class: HDRenderPipelineEditorMaterials, ns: UnityEngine.Rendering.HighDefinition, asm: Unity.RenderPipelines.HighDefinition.Runtime}
       data:
