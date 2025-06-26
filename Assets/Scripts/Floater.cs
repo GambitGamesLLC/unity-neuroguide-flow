@@ -27,7 +27,8 @@ public class Floater : MonoBehaviour
     WaterSearchResult SearchResult;
 
     // Adjust for stronger or weaker gravity
-    public float gravityMultiplier = 1.0f; 
+    public float gravityMultiplier = 1.0f;
+    public float forwardSpeed;
 
 
 
@@ -48,9 +49,10 @@ public class Floater : MonoBehaviour
         water.ProjectPointOnWaterSurface(Search, out SearchResult);
 
         rb.AddForce(Physics.gravity * gravityMultiplier, ForceMode.Acceleration);
+        rb.AddForce(0f,0f,forwardSpeed, ForceMode.Acceleration);
 
         //If object is below the water surface
-        if(transform.position.y < SearchResult.projectedPositionWS.y)
+        if (transform.position.y < SearchResult.projectedPositionWS.y)
         {
             //Calculate displacement multiplier based on submersion depth
             float displacementMulti = Mathf.Clamp01((SearchResult.projectedPositionWS.y - transform.position.y) / depthBeforeSub) * displaceAmount;
