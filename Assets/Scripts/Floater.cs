@@ -26,10 +26,16 @@ public class Floater : MonoBehaviour
     //Stores result of water surface search
     WaterSearchResult SearchResult;
 
+    // Adjust for stronger or weaker gravity
+    public float gravityMultiplier = 1.0f; 
+
+
+
     private void FixedUpdate()
     {
         //Apply a distributed gravitational force
         rb.AddForceAtPosition(Physics.gravity / floaters, transform.position, ForceMode.Acceleration);
+        //rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, 0.1f);
 
         //Set up search parameters for projecting on water surface
         Search.startPositionWS = SearchResult.candidateLocationWS;
@@ -40,6 +46,8 @@ public class Floater : MonoBehaviour
 
         //Project point onto water surface and get result
         water.ProjectPointOnWaterSurface(Search, out SearchResult);
+
+        rb.AddForce(Physics.gravity * gravityMultiplier, ForceMode.Acceleration);
 
         //If object is below the water surface
         if(transform.position.y < SearchResult.projectedPositionWS.y)
