@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "7fcd6b1e76ae6ab331438705fb4a4a71f2fa4e23"
     },
+    "com.gambit.config": {
+      "version": "https://github.com/GambitGamesLLC/unity-config-manager.git?path=Assets/Plugins/Package",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "469ea45509501f78159107d93416fd7587d43b90"
+    },
     "com.gambit.mathhelper": {
       "version": "https://github.com/GambitGamesLLC/unity-math-helper.git?path=Assets/Plugins/Package",
       "depth": 0,
@@ -27,6 +34,13 @@
       "source": "git",
       "dependencies": {},
       "hash": "ad33daf5f686db31350d9df7a8eb103f6ba907e3"
+    },
+    "com.leguar.totaljson": {
+      "version": "https://github.com/GambitGamesLLC/unity-plugin-totaljson.git?path=Assets/Plugins/Package",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e099e483bf780a1495e4eda83974a37fff65a6b3"
     },
     "com.unity.ai.navigation": {
       "version": "2.0.7",
