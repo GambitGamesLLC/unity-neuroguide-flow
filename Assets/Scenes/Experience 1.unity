@@ -13088,7 +13088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406819350275180882, guid: 683cd3fbeae68a0458636917c1ddc4dd, type: 3}
       propertyPath: m_Name
-      value: P_Sailing_Ship_OLD
+      value: P_Sailing_Ship
       objectReference: {fileID: 0}
     - target: {fileID: 9214599054828770280, guid: 683cd3fbeae68a0458636917c1ddc4dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13131,8 +13131,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 1470196447733121918, guid: 683cd3fbeae68a0458636917c1ddc4dd, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 9214599054828770280, guid: 683cd3fbeae68a0458636917c1ddc4dd, type: 3}
       insertIndex: -1
@@ -13206,10 +13205,6 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 157207117}
-    - target: {fileID: 563451567929092332, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 657686019}
     - target: {fileID: 1020065036711168747, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 118.05061
@@ -13262,30 +13257,30 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 167079983}
+    - target: {fileID: 3717838761578680694, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 657686019}
+    - target: {fileID: 3717838761578680694, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
+      propertyPath: threshold
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717838761578680694, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
+      propertyPath: waveDeformer
+      value: 
+      objectReference: {fileID: 657686017}
     - target: {fileID: 3955066408141964183, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 1572236704}
-    - target: {fileID: 4655938729217277262, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4794077409687228686, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 1480496899}
     - target: {fileID: 4794077409687228686, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
-      propertyPath: threshold
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4794077409687228686, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
       propertyPath: dropletObject
       value: 
       objectReference: {fileID: 1480496896}
-    - target: {fileID: 4794077409687228686, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
-      propertyPath: startingPoint
-      value: 0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 8080180389031159920, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
       propertyPath: animator
       value: 
@@ -13295,8 +13290,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1054714183}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3938401732064419793, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}

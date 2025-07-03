@@ -1,3 +1,4 @@
+using DG.Tweening;
 using gambit.mathhelper;
 using gambit.neuroguide;
 using UnityEngine;
@@ -68,11 +69,21 @@ public class WaterDroplets : NeuroBasicAnimator, INeuroGuideInteractable
     {
         base.OnDataUpdate(_value);
 
+        float mult = _value * 105f;
+
+        if (_value > threshold || _value < dropletMat.GetFloat("_RainAmount"))
+        {
+            mult = 1f;
+        }
+
         //Animate our cube grunge texture
 #if GAMBIT_MATHHELPER
 
         if (dropletMat != null)
-            dropletMat.SetFloat("_RainAmount", _value);
+        {
+            dropletMat.DOKill();
+            dropletMat.DOFloat(_value, "_RainAmount", mult);
+        }
 #endif
 
     }

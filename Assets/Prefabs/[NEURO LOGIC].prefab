@@ -83,7 +83,6 @@ Transform:
   - {fileID: 946778112533904640}
   - {fileID: 6973677075890701647}
   - {fileID: 6811450220313930071}
-  - {fileID: 6500842498483525329}
   - {fileID: 2742685474293821610}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -133,52 +132,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   animationStateName: OceanAnims
---- !u!1 &3938401732064419793
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6500842498483525329}
-  - component: {fileID: 4655938729217277262}
-  m_Layer: 0
-  m_Name: 'Flag [NEURO]'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6500842498483525329
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3938401732064419793}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1020065036711168747}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4655938729217277262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3938401732064419793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c7cf23e5c22b14bae6f35d62d4548a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  animationStateName: SailTest
 --- !u!1 &5018233773796828796
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6973677075890701647}
-  - component: {fileID: 563451567929092332}
+  - component: {fileID: 3717838761578680694}
   m_Layer: 0
   m_Name: 'WaveDeformer [NEURO]'
   m_TagString: Untagged
@@ -349,7 +302,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1020065036711168747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &563451567929092332
+--- !u!114 &3717838761578680694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -358,11 +311,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7258310884821518433}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c7cf23e5c22b14bae6f35d62d4548a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a7f90943fb1d914d8f17a53102ab365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   animationStateName: WakeAnim
+  waveDeformer: {fileID: 0}
+  threshold: 0.5
 --- !u!1 &8390741200063183390
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,9 +411,10 @@ MonoBehaviour:
   animator: {fileID: 0}
   animationStateName: RainCustomPassAnim
   dropletMat: {fileID: 2100000, guid: 2a2edb76f069c4143a424320bedd4f38, type: 2}
+  dropletObject: {fileID: 0}
   dropletMin: 0
   dropletMax: 1
-  threshold: 0.99
+  threshold: 0.3
 --- !u!1001 &6447090652366089263
 PrefabInstance:
   m_ObjectHideFlags: 0
