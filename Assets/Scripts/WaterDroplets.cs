@@ -10,6 +10,10 @@ public class WaterDroplets : NeuroBasicAnimator, INeuroGuideInteractable
     /// Material for the water droplets that appear on the screen
     /// </summary>
     [SerializeField] private Material dropletMat = null;
+    /// <summary>
+    /// GameObject of the water droplets that appear on the screen
+    /// </summary>
+    [SerializeField] private GameObject dropletObject = null;
     [Space]
     /// <summary>
     /// Minimum value this material should be set to 
@@ -39,6 +43,14 @@ public class WaterDroplets : NeuroBasicAnimator, INeuroGuideInteractable
         }
     }
 
+    private void OnApplicationQuit()
+    {
+        if (dropletMat != null)
+        {
+            dropletMat.SetFloat("_RainAmount", dropletMin);
+        }
+    }
+
     #endregion
 
 
@@ -55,6 +67,8 @@ public class WaterDroplets : NeuroBasicAnimator, INeuroGuideInteractable
     //------------------------------------------------------------------------//
     {
         base.OnDataUpdate(_value);
+
+        dropletObject.SetActive(_value >= threshold);
 
         //Animate our cube grunge texture
 #if GAMBIT_MATHHELPER

@@ -14,8 +14,8 @@
 		"port": 50000
 	},
 	"experience": {
-		"logs": true,
+		"logs": false,
 		"debug": true,
-		"length": 8
+		"length": 15
 	}
 }

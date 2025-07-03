@@ -40,6 +40,11 @@ public class NeuroBasicAnimator : MonoBehaviour, INeuroGuideInteractable
     public virtual void OnDataUpdate(float _value)
     //------------------------------------------------------------------------//
     {
+        if (_value >= 0.99f)
+        {
+            return;
+        }
+
         PlayAnimationDirectly(animationStateName, 0, _value);
     }
 
