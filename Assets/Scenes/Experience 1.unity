@@ -13088,7 +13088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8406819350275180882, guid: 683cd3fbeae68a0458636917c1ddc4dd, type: 3}
       propertyPath: m_Name
-      value: P_Sailing_Ship
+      value: P_Sailing_Ship_OLD
       objectReference: {fileID: 0}
     - target: {fileID: 9214599054828770280, guid: 683cd3fbeae68a0458636917c1ddc4dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13131,7 +13131,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1470196447733121918, guid: 683cd3fbeae68a0458636917c1ddc4dd, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 9214599054828770280, guid: 683cd3fbeae68a0458636917c1ddc4dd, type: 3}
       insertIndex: -1
