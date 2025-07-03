@@ -68,13 +68,11 @@ public class WaterDroplets : NeuroBasicAnimator, INeuroGuideInteractable
     {
         base.OnDataUpdate(_value);
 
-        dropletObject.SetActive(_value >= threshold);
-
         //Animate our cube grunge texture
 #if GAMBIT_MATHHELPER
 
         if (dropletMat != null)
-            dropletMat.SetFloat("_RainAmount", MathHelper.Map(_value, 0f, threshold, dropletMin, dropletMax));
+            dropletMat.SetFloat("_RainAmount", _value);
 #endif
 
     }
