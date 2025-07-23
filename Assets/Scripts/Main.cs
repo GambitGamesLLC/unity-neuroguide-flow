@@ -239,11 +239,11 @@ public class Main : MonoBehaviour
         );
 
         //Set the 'length' variable, should be within the 'experience' object and the 'length' key
-        ConfigManager.GetNestedInteger
+        ConfigManager.GetNestedFloat
         (
             configSystem,
             new string[] { "experience", "length" },
-            (int value) =>
+            (float value) =>
             {
                 experienceLengthInSeconds = value;
                 isReady++;
