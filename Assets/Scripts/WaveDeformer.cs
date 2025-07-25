@@ -32,7 +32,7 @@ public class WaveDeformer : NeuroBasicAnimator
         base.OnDataUpdate(_value);
 
         // Hide the deformer at a certain point
-        waveDeformer.SetActive(_value < threshold);
+        //waveDeformer.SetActive(_value < threshold);
     }
 
     #endregion
