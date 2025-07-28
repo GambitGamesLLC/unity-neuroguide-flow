@@ -16,6 +16,6 @@
 	"experience": {
 		"logs": false,
 		"debug": true,
-		"length": 15
+		"length": 1
 	}
 }
