@@ -14168,6 +14168,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2687606169417356812, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
+      propertyPath: logs
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687606169417356812, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
       propertyPath: length
       value: 2.8
       objectReference: {fileID: 0}
