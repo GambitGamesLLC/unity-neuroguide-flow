@@ -62,7 +62,7 @@ public class NeuroLoopAnimator : MonoBehaviour, INeuroGuideInteractable
     {
         if (animator != null && animator.gameObject.activeSelf)
         {
-            animator.Play(_stateName, 0, _normalizedTime);
+            animator.Play(_stateName, 0, 1f);
         }
 
     } //END PlayAnimationDirectly
