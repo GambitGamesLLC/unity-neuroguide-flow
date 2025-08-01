@@ -237,7 +237,7 @@ public class Main : MonoBehaviour
             LogError,
 
             //OnDataUpdate
-            (NeuroGuideData data) =>
+            (NeuroGuideData? data) =>
             {
                 //if( logs ) Debug.Log( "NeuroGuideDemo CreateNeuroGuideManager() Data Updated" );
             },
