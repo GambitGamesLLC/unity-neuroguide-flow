@@ -1,17 +1,7 @@
-#if !GAMBIT_NEUROGUIDE
-    //Class is unused if gambit.neuroguide package is missing
-#else
-
-/// <summary>
-/// Zoom the camera in and out based on input
-/// </summary>
-
 #region IMPORTS
 
 #if GAMBIT_NEUROGUIDE
 using gambit.neuroguide;
-using static UnityEngine.Rendering.DebugUI;
-
 #endif
 
 #if GAMBIT_MATHHELPER
@@ -22,19 +12,43 @@ using UnityEngine;
 
 #endregion
 
-
 public class ShipRocking : MonoBehaviour, INeuroGuideInteractable
 {
+
+    #region PUBLIC - VARIABLES
 
     public Animator animator;
 
     public float threshold = 0.99f;
+
+    #endregion
+
+    #region PUBLIC - START
 
     public void Start()
     {
         PlayAnimationDirectly("ShipInitial");
         animator.speed = 0f;
     }
+
+    #endregion
+
+    #region PUBLIC - NEUROGUIDE - ON RECIEVING REWARD CHANGED
+
+    /// <summary>
+    /// Called when the NeuroGuide software starts or stops sending the user a reward
+    /// </summary>
+    /// <param name="isRecievingReward">Is the user currently recieiving a reward?</param>
+    //--------------------------------------------------------------------//
+    public void OnRecievingRewardChanged( bool isRecievingReward )
+    //--------------------------------------------------------------------//
+    {
+
+    } //END OnRecievingRewardChanged
+
+    #endregion
+
+    #region PUBLIC - NEUROGUIDE - ON DATA UPDATE
 
     public void OnDataUpdate(float value)
     {
@@ -50,6 +64,11 @@ public class ShipRocking : MonoBehaviour, INeuroGuideInteractable
         }
     }
 
+    #endregion
+
+    #region PUBLIC - PLAY ANIMATION DIRECTLY
+
+    //-----------------------------------------------------------------//
     public void PlayAnimationDirectly(string stateName, int layer = 0, float normalizedTime = 0f)
     //-----------------------------------------------------------------//
     {
@@ -60,6 +79,11 @@ public class ShipRocking : MonoBehaviour, INeuroGuideInteractable
 
     } //END PlayAnimationDirectly
 
+    #endregion
+
+    #region PUBLIC - PLAY ANIMATION TRIGGER
+
+    //----------------------------------------------------------//
     public void PlayAnimationTrigger(string triggerName)
     //----------------------------------------------------------//
     {
@@ -69,6 +93,7 @@ public class ShipRocking : MonoBehaviour, INeuroGuideInteractable
         }
 
     } //END PlayAnimationTrigger
-}
 
-#endif
+    #endregion
+
+} //END ShipRocking Class

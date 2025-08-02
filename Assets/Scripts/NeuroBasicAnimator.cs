@@ -1,9 +1,16 @@
+#region IMPORTS
+
+#if GAMBIT_NEUROGUIDE
 using gambit.neuroguide;
+#endif
+
 using UnityEngine;
+
+#endregion
 
 public class NeuroBasicAnimator : MonoBehaviour, INeuroGuideInteractable
 {
-    #region VARIABLES
+    #region PRIVATE - VARIABLES
 
     /// <summary>
     /// Animator for the sun lighting
@@ -17,8 +24,7 @@ public class NeuroBasicAnimator : MonoBehaviour, INeuroGuideInteractable
 
     #endregion
 
-
-    #region MONOBEHAVIOURS
+    #region PUBLIC - AWAKE
 
     private void Awake()
     {
@@ -27,8 +33,20 @@ public class NeuroBasicAnimator : MonoBehaviour, INeuroGuideInteractable
 
     #endregion
 
+    #region PUBLIC - NEUROGUIDE - ON RECIEVING REWARD CHANGED
 
-    #region METHODS
+    /// <summary>
+    /// Called when the NeuroGuide software starts or stops sending the user a reward
+    /// </summary>
+    /// <param name="isRecievingReward">Is the user currently recieiving a reward?</param>
+    //--------------------------------------------------------------------//
+    public void OnRecievingRewardChanged( bool isRecievingReward )
+    //--------------------------------------------------------------------//
+    {
+
+    } //END OnRecievingRewardChanged
+
+    #endregion
 
     #region  PUBLIC - NEUROGUIDE - ON DATA UPDATE
 
@@ -69,6 +87,4 @@ public class NeuroBasicAnimator : MonoBehaviour, INeuroGuideInteractable
 
     #endregion
 
-    #endregion
-}
-
+} //END NeuroBasicAnimator Class

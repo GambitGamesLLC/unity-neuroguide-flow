@@ -26,7 +26,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "3bd3298844bf104dcca3b1254d2b4ad3a1eecae6"
+      "hash": "6e5ac85ac95de4ee8a2df2b78316eb899c8839e9"
     },
     "com.gambit.process": {
       "version": "https://github.com/GambitGamesLLC/unity-process-manager.git?path=Assets/Plugins/Package",
