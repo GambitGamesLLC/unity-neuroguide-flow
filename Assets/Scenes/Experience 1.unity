@@ -358,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1440970482}
   animationStateName: BackSailAnimation
+  isAboveThreshold: 0
 --- !u!1 &157207112
 GameObject:
   m_ObjectHideFlags: 0
@@ -5655,6 +5656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 790940519}
   animationStateName: FlagAnimation
+  isAboveThreshold: 0
 --- !u!1 &205109820
 GameObject:
   m_ObjectHideFlags: 0
@@ -11427,6 +11429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 81360506}
   animationStateName: FrontSailAnimation
+  isAboveThreshold: 0
 --- !u!1 &626723253
 GameObject:
   m_ObjectHideFlags: 0
@@ -11767,6 +11770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 344514143}
   animationStateName: GlareVolumeAnim
+  isAboveThreshold: 0
 --- !u!1001 &869866703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12262,6 +12266,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1105762399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1105762401}
+  - component: {fileID: 1105762400}
+  m_Layer: 0
+  m_Name: Change Animation When Score Falls Below Threshold
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1105762400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105762399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd2acb210819bb4fa5f0f7d49a3e881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeToProgress: 0.9
+--- !u!4 &1105762401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105762399}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1239415242
 GameObject:
   m_ObjectHideFlags: 0
@@ -13734,7 +13783,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1823688470}
-  threshold: 0.99
 --- !u!1 &1881972609
 GameObject:
   m_ObjectHideFlags: 0
@@ -14650,3 +14698,4 @@ SceneRoots:
   - {fileID: 564196685}
   - {fileID: 1772254966}
   - {fileID: 114317732}
+  - {fileID: 1105762401}
