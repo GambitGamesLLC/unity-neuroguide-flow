@@ -8,7 +8,7 @@ using UnityEngine;
 
 #endregion
 
-public class NeuroLoopAnimator : MonoBehaviour, INeuroGuideInteractable
+public class NeuroLoopAnimator : MonoBehaviour, INeuroGuideAnimationExperienceInteractable
 {
 
     #region PRIVATE - VARIABLES
@@ -22,6 +22,8 @@ public class NeuroLoopAnimator : MonoBehaviour, INeuroGuideInteractable
     /// String signifying the name of the animation to be played
     /// </summary>
     [SerializeField] private string animationStateName = string.Empty;
+
+    private bool isAboveThreshold = false;
 
     #endregion
 
@@ -59,13 +61,43 @@ public class NeuroLoopAnimator : MonoBehaviour, INeuroGuideInteractable
     public virtual void OnDataUpdate(float _value)
     //------------------------------------------------------------------------//
     {
-        if (_value >= 0.99f)
+        if (isAboveThreshold)
         {
             return;
         }
 
         PlayAnimationDirectly(animationStateName, 0, _value);
     }
+
+    #endregion
+
+    #region PUBLIC - NEUROGUIDE - ON ABOVE THRESHOLD
+
+    /// <summary>
+    /// Called when the NeuroGuideAnimationExperience has a score thats above the threshold value
+    /// </summary>
+    //------------------------------------//
+    public void OnAboveThreshold()
+    //------------------------------------//
+    {
+        isAboveThreshold = true;
+
+    } //END OnAboveThreshold
+
+    #endregion
+
+    #region PUBLIC - NEUROGUIDE - ON BELOW THRESHOLD
+
+    /// <summary>
+    /// Called when the NeuroGuideAnimationExperience has a score thats below the threshold value
+    /// </summary>
+    //-------------------------------------//
+    public void OnBelowThreshold()
+    //-------------------------------------//
+    {
+        isAboveThreshold = false;
+
+    } //END OnBelowThreshold
 
     #endregion
 

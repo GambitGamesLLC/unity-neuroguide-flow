@@ -8,19 +8,24 @@ using UnityEngine;
 
 #endregion
 
-public class NeuroBasicAnimator : MonoBehaviour, INeuroGuideInteractable
+public class NeuroBasicAnimator : MonoBehaviour, INeuroGuideAnimationExperienceInteractable
 {
     #region PRIVATE - VARIABLES
 
     /// <summary>
     /// Animator for the sun lighting
     /// </summary>
-    [SerializeField] private Animator animator = null;
+    [SerializeField] protected Animator animator = null;
 
     /// <summary>
     /// String signifying the name of the animation to be played
     /// </summary>
-    [SerializeField] private string animationStateName = string.Empty;
+    [SerializeField] protected string animationStateName = string.Empty;
+
+    /// <summary>
+    /// Flag set when going above and below the threshold
+    /// </summary>
+   [SerializeField] protected bool isAboveThreshold = false;
 
     #endregion
 
@@ -58,13 +63,41 @@ public class NeuroBasicAnimator : MonoBehaviour, INeuroGuideInteractable
     public virtual void OnDataUpdate(float _value)
     //------------------------------------------------------------------------//
     {
-        if (_value >= 0.99f)
+        if( isAboveThreshold == false )
         {
-            return;
+            PlayAnimationDirectly( animationStateName, 0, _value );
         }
-
-        PlayAnimationDirectly(animationStateName, 0, _value);
     }
+
+    #endregion
+
+    #region PUBLIC - NEUROGUIDE - ON ABOVE THRESHOLD
+
+    /// <summary>
+    /// Called when the NeuroGuideAnimationExperience has a score thats above the threshold value
+    /// </summary>
+    //------------------------------------//
+    public void OnAboveThreshold()
+    //------------------------------------//
+    {
+        isAboveThreshold = true;
+
+    } //END OnAboveThreshold
+
+    #endregion
+
+    #region PUBLIC - NEUROGUIDE - ON BELOW THRESHOLD
+
+    /// <summary>
+    /// Called when the NeuroGuideAnimationExperience has a score thats below the threshold value
+    /// </summary>
+    //-------------------------------------//
+    public void OnBelowThreshold()
+    //-------------------------------------//
+    {
+        isAboveThreshold = false;
+
+    } //END OnBelowThreshold
 
     #endregion
 

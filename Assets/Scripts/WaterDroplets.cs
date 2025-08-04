@@ -3,7 +3,7 @@ using gambit.mathhelper;
 using gambit.neuroguide;
 using UnityEngine;
 
-public class WaterDroplets : NeuroBasicAnimator, INeuroGuideInteractable
+public class WaterDroplets : NeuroBasicAnimator, INeuroGuideAnimationExperienceInteractable
 {
     #region VARIABLES
 
@@ -25,14 +25,8 @@ public class WaterDroplets : NeuroBasicAnimator, INeuroGuideInteractable
     /// Maximum value this material should be set to; Default to 1
     /// </summary>
     [SerializeField] private float dropletMax = 1f;
-    [Space]
-    /// <summary>
-    /// How far into the NeuroGuideExperience should we be before we cross the threshold? Uses a 0-1 normalized percentage value
-    /// </summary>
-    [SerializeField] private float threshold = 0f;
-
+    
     #endregion
-
 
     #region MONOBEHAVIOURS
 
@@ -54,9 +48,6 @@ public class WaterDroplets : NeuroBasicAnimator, INeuroGuideInteractable
 
     #endregion
 
-
-    #region METHODS
-
     #region  PUBLIC - NEUROGUIDE - ON DATA UPDATE
 
     /// <summary>
@@ -71,7 +62,7 @@ public class WaterDroplets : NeuroBasicAnimator, INeuroGuideInteractable
 
         float mult = _value * 105f;
 
-        if (_value > threshold || _value < dropletMat.GetFloat("_RainAmount"))
+        if ( isAboveThreshold || _value < dropletMat.GetFloat("_RainAmount"))
         {
             mult = 1f;
         }
@@ -90,6 +81,4 @@ public class WaterDroplets : NeuroBasicAnimator, INeuroGuideInteractable
 
     #endregion
 
-    #endregion
-}
-
+} //END WaterDroplets Class

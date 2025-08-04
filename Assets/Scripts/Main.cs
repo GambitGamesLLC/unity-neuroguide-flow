@@ -64,6 +64,11 @@ public class Main : MonoBehaviour
     /// </summary>
     public int port = 50000;
 
+    /// <summary>
+    /// The threshold the score must reach in a NeuroGuideAnimationExperience for us to transition
+    /// </summary>
+    public float threshold = 0.9f;
+
     #endregion
 
     #region PRIVATE - VARIABLES
@@ -169,7 +174,10 @@ public class Main : MonoBehaviour
             {
                 port = int.Parse( value );
             }
-
+            else if(key == "threshold")
+            {
+                threshold = float.Parse( value );
+            }
         }
 
         CreateVisualLog();
@@ -229,8 +237,8 @@ public class Main : MonoBehaviour
             //OnSuccess
             (NeuroGuideManager.NeuroGuideSystem system) =>
             {
-                if (logs) Debug.Log("Main.cs CreateNeuroGuideManager() Successfully created NeuroGuideManager");
-                CreateNeuroGuideExperience();
+                //if (logs) Debug.Log("Main.cs CreateNeuroGuideManager() Successfully created NeuroGuideManager");
+                CreateNeuroGuideAnimationExperience();
             },
 
             //OnError
@@ -245,7 +253,7 @@ public class Main : MonoBehaviour
             //OnStateUpdate
             (NeuroGuideManager.State state) =>
             {
-                if (logs) Debug.Log("Main.cs CreateNeuroGuideManager() State changed to " + state.ToString());
+                //if (logs) Debug.Log("Main.cs CreateNeuroGuideManager() State changed to " + state.ToString());
             });
 
 #endif
@@ -260,35 +268,30 @@ public class Main : MonoBehaviour
     /// Initializes a NeuroGuideExperience once the hardware is ready
     /// </summary>
     //---------------------------------------------//
-    private void CreateNeuroGuideExperience()
+    private void CreateNeuroGuideAnimationExperience()
     //---------------------------------------------//
     {
 
 #if GAMBIT_NEUROGUIDE
 
-        NeuroGuideExperience.Create
+        NeuroGuideAnimationExperience.Create
         (
             //Options
-            new NeuroGuideExperience.Options()
+            new NeuroGuideAnimationExperience.Options()
             {
                 showDebugLogs = logs,
-                totalDurationInSeconds = length
+                totalDurationInSeconds = length,
+                threshold = threshold
             },
 
             //OnSuccess
-            (NeuroGuideExperience.NeuroGuideExperienceSystem system) =>
+            ( NeuroGuideAnimationExperience.NeuroGuideAnimationExperienceSystem system) =>
             {
-                if (logs) Debug.Log("Main.cs CreateNeuroGuideExperience() Successfully created NeuroGuideExperience");
+                if (logs) Debug.Log( "Main.cs CreateNeuroGuideAnimationExperience() Successfully created NeuroGuideExperience" );
             },
 
             //OnFailed
-            LogError,
-
-            //OnDataUpdate
-            (float value) =>
-            {
-                if (logs) Debug.Log("Main.cs CreateNeuroGuideExperience() Data Updated = " + value);
-            }
+            LogError
 
         );
 

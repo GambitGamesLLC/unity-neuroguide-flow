@@ -12,7 +12,7 @@ using UnityEngine;
 
 #endregion
 
-public class ShipRocking : MonoBehaviour, INeuroGuideInteractable
+public class ShipRocking : MonoBehaviour, INeuroGuideAnimationExperienceInteractable
 {
 
     #region PUBLIC - VARIABLES
@@ -20,6 +20,12 @@ public class ShipRocking : MonoBehaviour, INeuroGuideInteractable
     public Animator animator;
 
     public float threshold = 0.99f;
+
+    #endregion
+
+    #region PRIVATE - VARIABLES
+
+    private bool isAboveThreshold;
 
     #endregion
 
@@ -54,7 +60,7 @@ public class ShipRocking : MonoBehaviour, INeuroGuideInteractable
     {
         PlayAnimationDirectly("ShipRockAnim", 0, value);
 
-        if (value >= threshold)
+        if (isAboveThreshold)
         {
             PlayAnimationDirectly("ShipRockAnim", 0, value);
         }
@@ -63,6 +69,36 @@ public class ShipRocking : MonoBehaviour, INeuroGuideInteractable
             PlayAnimationDirectly("ShipRockAnim", 0, value);
         }
     }
+
+    #endregion
+
+    #region PUBLIC - NEUROGUIDE - ON ABOVE THRESHOLD
+
+    /// <summary>
+    /// Called when the NeuroGuideAnimationExperience has a score thats above the threshold value
+    /// </summary>
+    //------------------------------------//
+    public void OnAboveThreshold()
+    //------------------------------------//
+    {
+        isAboveThreshold = true;
+
+    } //END OnAboveThreshold
+
+    #endregion
+
+    #region PUBLIC - NEUROGUIDE - ON BELOW THRESHOLD
+
+    /// <summary>
+    /// Called when the NeuroGuideAnimationExperience has a score thats below the threshold value
+    /// </summary>
+    //-------------------------------------//
+    public void OnBelowThreshold()
+    //-------------------------------------//
+    {
+        isAboveThreshold = false;
+
+    } //END OnBelowThreshold
 
     #endregion
 
