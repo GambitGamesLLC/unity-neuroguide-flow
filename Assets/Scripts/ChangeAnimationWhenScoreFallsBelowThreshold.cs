@@ -56,7 +56,7 @@ public class ChangeAnimationWhenScoreFallsBelowThreshold : MonoBehaviour, INeuro
 
     public void OnDataUpdate( float normalizedValue )
     {
-        Debug.Log( NeuroGuideAnimationExperience.system.currentProgressInSeconds );
+        //Debug.Log( NeuroGuideAnimationExperience.system.currentProgressInSeconds );
     }
 
     #endregion
@@ -70,4 +70,4 @@ public class ChangeAnimationWhenScoreFallsBelowThreshold : MonoBehaviour, INeuro
 
     #endregion
 
-} //END ChangeScoreWhenBelowThreshold Class
+} //END ChangeAnimationWhenScoreFallsBelowThreshold Class

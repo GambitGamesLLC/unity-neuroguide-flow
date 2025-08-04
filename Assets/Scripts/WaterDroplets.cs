@@ -11,20 +11,12 @@ public class WaterDroplets : NeuroBasicAnimator, INeuroGuideAnimationExperienceI
     /// Material for the water droplets that appear on the screen
     /// </summary>
     [SerializeField] private Material dropletMat = null;
-    /// <summary>
-    /// GameObject of the water droplets that appear on the screen
-    /// </summary>
-    [SerializeField] private GameObject dropletObject = null;
+
     [Space]
     /// <summary>
     /// Minimum value this material should be set to 
     /// </summary>
     [SerializeField] private float dropletMin = 0f;
-
-    /// <summary>
-    /// Maximum value this material should be set to; Default to 1
-    /// </summary>
-    [SerializeField] private float dropletMax = 1f;
     
     #endregion
 
