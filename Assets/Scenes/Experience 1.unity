@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 114317730}
   - component: {fileID: 114317729}
   - component: {fileID: 114317728}
+  - component: {fileID: 114317733}
   m_Layer: 0
   m_Name: Seagull_2_Placeholder
   m_TagString: Untagged
@@ -278,6 +279,23 @@ Transform:
   - {fileID: 1317892571}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114317733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114317727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 399b71a754fcd6e478b30f7f035b5f2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 114317728}
+  animationStateName: 
+  animSpeed: 1
+  animIn: flyIn
+  isAboveThreshold: 0
 --- !u!1 &115869278
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,11 +371,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 153297279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c7cf23e5c22b14bae6f35d62d4548a, type: 3}
+  m_Script: {fileID: 11500000, guid: a6b3305377497f347baee55e65c30ba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1440970482}
   animationStateName: BackSailAnimation
+  aboveAnimState: BackSailAnimationLoop
+  belowAnimState: BackSailAnimation
+  animSpeed: 2
   isAboveThreshold: 0
 --- !u!1 &157207112
 GameObject:
@@ -11424,11 +11445,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 589936812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c7cf23e5c22b14bae6f35d62d4548a, type: 3}
+  m_Script: {fileID: 11500000, guid: a6b3305377497f347baee55e65c30ba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 81360506}
   animationStateName: FrontSailAnimation
+  aboveAnimState: FrontSailAnimationLoop
+  belowAnimState: FrontSailAnimation
+  animSpeed: 2
   isAboveThreshold: 0
 --- !u!1 &626723253
 GameObject:
@@ -12311,6 +12335,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1229791883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5018233773796828796, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
+  m_PrefabInstance: {fileID: 3598280429282490938}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1229791885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229791883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b3305377497f347baee55e65c30ba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1572236704}
+  animationStateName: SailTestMid
+  aboveAnimState: SailTestMidLoop
+  belowAnimState: SailTestMid
+  animSpeed: 2
+  isAboveThreshold: 0
 --- !u!1 &1239415242
 GameObject:
   m_ObjectHideFlags: 0
@@ -13378,6 +13425,7 @@ GameObject:
   - component: {fileID: 1772254964}
   - component: {fileID: 1772254963}
   - component: {fileID: 1772254962}
+  - component: {fileID: 1772254967}
   m_Layer: 0
   m_Name: Seagull_1_Placeholder
   m_TagString: Untagged
@@ -13497,6 +13545,23 @@ Transform:
   - {fileID: 2025475918}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1772254967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772254961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 399b71a754fcd6e478b30f7f035b5f2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1772254962}
+  animationStateName: 
+  animSpeed: 1
+  animIn: flyIn
+  isAboveThreshold: 0
 --- !u!1 &1823688464
 GameObject:
   m_ObjectHideFlags: 0
@@ -14437,7 +14502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2687606169417356812, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
       propertyPath: logs
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2687606169417356812, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
       propertyPath: length
@@ -14471,6 +14536,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1572236704}
+    - target: {fileID: 3955066408141964183, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4794077409687228686, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
       propertyPath: animator
       value: 
@@ -14499,7 +14568,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3955066408141964183, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1020065036711168747, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
@@ -14514,7 +14584,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1020065036711168747, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 832095763}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5018233773796828796, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1229791885}
   m_SourcePrefab: {fileID: 100100000, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
 --- !u!224 &4065177527730558315
 RectTransform:
@@ -14696,6 +14769,6 @@ SceneRoots:
   - {fileID: 3598280429282490938}
   - {fileID: 1497004449}
   - {fileID: 564196685}
-  - {fileID: 1772254966}
-  - {fileID: 114317732}
   - {fileID: 1105762401}
+  - {fileID: 114317732}
+  - {fileID: 1772254966}

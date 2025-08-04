@@ -8,7 +8,7 @@ using UnityEngine;
 
 #endregion
 
-public class NeuroBasicAnimator : MonoBehaviour, INeuroGuideAnimationExperienceInteractable
+public class SeagullAnimator : MonoBehaviour, INeuroGuideAnimationExperienceInteractable
 {
     #region PRIVATE - VARIABLES
 
@@ -22,10 +22,14 @@ public class NeuroBasicAnimator : MonoBehaviour, INeuroGuideAnimationExperienceI
     /// </summary>
     [SerializeField] protected string animationStateName = string.Empty;
 
+    public float animSpeed;
+
+    public string animIn;
+
     /// <summary>
     /// Flag set when going above and below the threshold
     /// </summary>
-   [SerializeField] protected bool isAboveThreshold = false;
+    [SerializeField] protected bool isAboveThreshold = false;
 
     #endregion
 
@@ -35,7 +39,7 @@ public class NeuroBasicAnimator : MonoBehaviour, INeuroGuideAnimationExperienceI
 
     private void Awake()
     {
-        animator.speed = 0f;
+        animator.speed = animSpeed;
     }
 
     #endregion
@@ -47,7 +51,7 @@ public class NeuroBasicAnimator : MonoBehaviour, INeuroGuideAnimationExperienceI
     /// </summary>
     /// <param name="isRecievingReward">Is the user currently recieiving a reward?</param>
     //--------------------------------------------------------------------//
-    public void OnRecievingRewardChanged( bool isRecievingReward )
+    public void OnRecievingRewardChanged(bool isRecievingReward)
     //--------------------------------------------------------------------//
     {
 
@@ -65,15 +69,20 @@ public class NeuroBasicAnimator : MonoBehaviour, INeuroGuideAnimationExperienceI
     public virtual void OnDataUpdate(float _value)
     //------------------------------------------------------------------------//
     {
-        if( isAboveThreshold == false )
+        if (isAboveThreshold == false)
         {
-            PlayAnimationDirectly( animationStateName, 0, _value );
+            animator.SetBool(animIn, false);
 
+        }
+        if (isAboveThreshold == true)
+        {
+            animator.SetBool(animIn, true);
         }
 
     }
 
     #endregion
+
 
     #region PUBLIC - NEUROGUIDE - ON ABOVE THRESHOLD
 
@@ -85,6 +94,7 @@ public class NeuroBasicAnimator : MonoBehaviour, INeuroGuideAnimationExperienceI
     //------------------------------------//
     {
         isAboveThreshold = true;
+       // animationStateName = aboveAnimState;
 
     } //END OnAboveThreshold
 
@@ -100,6 +110,7 @@ public class NeuroBasicAnimator : MonoBehaviour, INeuroGuideAnimationExperienceI
     //-------------------------------------//
     {
         isAboveThreshold = false;
+        //animationStateName = belowAnimState;
 
     } //END OnBelowThreshold
 

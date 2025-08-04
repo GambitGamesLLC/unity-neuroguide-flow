@@ -10,24 +10,31 @@ using UnityEngine;
 
 public class NeuroLoopAnimator : MonoBehaviour, INeuroGuideAnimationExperienceInteractable
 {
-
     #region PRIVATE - VARIABLES
 
     /// <summary>
     /// Animator for the sun lighting
     /// </summary>
-    [SerializeField] private Animator animator = null;
+    [SerializeField] protected Animator animator = null;
 
     /// <summary>
     /// String signifying the name of the animation to be played
     /// </summary>
-    [SerializeField] private string animationStateName = string.Empty;
+    [SerializeField] protected string animationStateName = string.Empty;
+    public string aboveAnimState;
+    public string belowAnimState;
+    public float animSpeed;
 
-    private bool isAboveThreshold = false;
+    /// <summary>
+    /// Flag set when going above and below the threshold
+    /// </summary>
+    [SerializeField] protected bool isAboveThreshold = false;
 
     #endregion
 
-    #region PRIVATE - AWAKE
+    #region PUBLIC - AWAKE
+
+
 
     private void Awake()
     {
@@ -43,7 +50,7 @@ public class NeuroLoopAnimator : MonoBehaviour, INeuroGuideAnimationExperienceIn
     /// </summary>
     /// <param name="isRecievingReward">Is the user currently recieiving a reward?</param>
     //--------------------------------------------------------------------//
-    public void OnRecievingRewardChanged( bool isRecievingReward )
+    public void OnRecievingRewardChanged(bool isRecievingReward)
     //--------------------------------------------------------------------//
     {
 
@@ -61,15 +68,22 @@ public class NeuroLoopAnimator : MonoBehaviour, INeuroGuideAnimationExperienceIn
     public virtual void OnDataUpdate(float _value)
     //------------------------------------------------------------------------//
     {
-        if (isAboveThreshold)
+        if (isAboveThreshold == false)
         {
-            return;
+            PlayAnimationDirectly(animationStateName, 0, _value);
+            animator.speed = 0;
+
+        }
+        if (isAboveThreshold == true)
+        {
+            PlayAnimationDirectly(animationStateName);
+            animator.speed = animSpeed;
         }
 
-        PlayAnimationDirectly(animationStateName, 0, _value);
     }
 
     #endregion
+
 
     #region PUBLIC - NEUROGUIDE - ON ABOVE THRESHOLD
 
@@ -81,6 +95,7 @@ public class NeuroLoopAnimator : MonoBehaviour, INeuroGuideAnimationExperienceIn
     //------------------------------------//
     {
         isAboveThreshold = true;
+        animationStateName = aboveAnimState;
 
     } //END OnAboveThreshold
 
@@ -96,6 +111,7 @@ public class NeuroLoopAnimator : MonoBehaviour, INeuroGuideAnimationExperienceIn
     //-------------------------------------//
     {
         isAboveThreshold = false;
+        animationStateName = belowAnimState;
 
     } //END OnBelowThreshold
 
@@ -113,11 +129,11 @@ public class NeuroLoopAnimator : MonoBehaviour, INeuroGuideAnimationExperienceIn
     {
         if (animator != null && animator.gameObject.activeSelf)
         {
-            animator.Play(_stateName, 0, 1f);
+            animator.Play(_stateName, 0, _normalizedTime);
         }
 
     } //END PlayAnimationDirectly
 
     #endregion
 
-} //END NeuroLoopAnimator Class
+} //END NeuroBasicAnimator Class
