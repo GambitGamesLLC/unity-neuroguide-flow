@@ -1,16 +1,23 @@
-using System.Collections;
-using UnityEngine;
+#region IMPORTS
 
-public class SeagullAnimStates : MonoBehaviour
+#if GAMBIT_NEUROGUIDE
+using gambit.neuroguide;
+#endif
+
+using UnityEngine;
+using System.Collections;
+
+#endregion
+
+public class SeagullAnimStates : MonoBehaviour, INeuroGuideAnimationExperienceInteractable
 {
     public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator.SetTrigger("LightFlap");
 
-        StartCoroutine(ExecuteAfterDelay());
+       // StartCoroutine(ExecuteAfterDelay());
     }
 
     IEnumerator ExecuteAfterDelay()
@@ -32,5 +39,38 @@ public class SeagullAnimStates : MonoBehaviour
             //Debug.Log("Another second has passed!");
             animator.SetTrigger("LightFlap");
         }
+    }
+
+    public void OnAboveThreshold()
+    {
+       
+    }
+
+    public void OnBelowThreshold()
+    {
+        
+    }
+
+    public void OnRecievingRewardChanged(bool isRecievingReward)
+    {
+        if(isRecievingReward == true)
+        {
+            //Debug.Log("Reward");
+            animator.SetBool("LightFlap", true);
+            animator.SetBool("Glide", false);
+            // StartCoroutine(ExecuteAfterDelay());
+        }
+
+        else
+        {
+            //Debug.Log("noReward");
+            animator.SetBool("LightFlap", false);
+            animator.SetBool("Glide", true);
+        }
+    }
+
+    public void OnDataUpdate(float normalizedValue)
+    {
+
     }
 }

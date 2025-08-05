@@ -26,6 +26,8 @@ public class SeagullAnimator : MonoBehaviour, INeuroGuideAnimationExperienceInte
 
     public string animIn;
 
+    public bool thresholdPlacement;
+
     /// <summary>
     /// Flag set when going above and below the threshold
     /// </summary>
@@ -40,6 +42,10 @@ public class SeagullAnimator : MonoBehaviour, INeuroGuideAnimationExperienceInte
     private void Awake()
     {
         animator.speed = animSpeed;
+        if(thresholdPlacement == true)
+        {
+            animator.speed = 1f;
+        }
     }
 
     #endregion
@@ -54,7 +60,19 @@ public class SeagullAnimator : MonoBehaviour, INeuroGuideAnimationExperienceInte
     public void OnRecievingRewardChanged(bool isRecievingReward)
     //--------------------------------------------------------------------//
     {
+        if (isRecievingReward == true && !thresholdPlacement)
+        {
+            animator.speed = 1f;
+        }
+        else
+        {
+            animator.speed = 0.5f;
+        }
 
+        if(thresholdPlacement == true)
+        {
+            animator.speed = 1f;
+        }
     } //END OnRecievingRewardChanged
 
     #endregion
