@@ -12488,7 +12488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd2acb210819bb4fa5f0f7d49a3e881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeToProgress: 0.9
+  changeToProgress: 0.8
 --- !u!4 &1105762401
 Transform:
   m_ObjectHideFlags: 0
@@ -14795,6 +14795,10 @@ PrefabInstance:
     - target: {fileID: 2687606169417356812, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
       propertyPath: length
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687606169417356812, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
+      propertyPath: threshold
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3246327644392016575, guid: 94b1f6fa7ff5f374da12e06902a8d09b, type: 3}
       propertyPath: animator
