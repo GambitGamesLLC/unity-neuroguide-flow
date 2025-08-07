@@ -22,7 +22,10 @@ If the `progress` falls below the `threshold`, the `progress` value is forcibly 
 ## BUILD INSTRUCTIONS
 
 - No special build instructions, simply make a Windows desktop build
-
+- Your build location needs to be `%LocalAppData%\M3DVR\Flow`
+- This means your `.exe` would be at the path : `%LocalAppData%\M3DVR\Flow\Flow.exe`
+- This location follows the expected path that the [unity-neuroguide-launcher](https://github.com/GambitGamesLLC/unity-neuroguide-launcher) will be looking for this projects build executable to launch as a new process.
+  
 ---  
 
 ## ARTIST NOTES
