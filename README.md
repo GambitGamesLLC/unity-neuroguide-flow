@@ -7,7 +7,7 @@ In this experience, a ship floats on a calm ocean with a beuatiful orange sky an
 
 If the `progress` falls below the `threshold`, the `progress` value is forcibly set to a value, but in this experience we set this value to the same amount as the threshold, so its as if this feature is ignored. It's been left in place as it isn't hurting the experience.
 
-<img width="440" height="257" alt="image" src="https://github.com/user-attachments/assets/0474f872-9e09-47b0-9f5f-a514d33f81df" />
+<img width="412" height="235" alt="image" src="https://github.com/user-attachments/assets/eabcad03-ffd9-4bd5-81bf-e946f7fa6a43" />
 
 ---
 
