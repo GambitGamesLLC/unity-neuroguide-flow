@@ -192,9 +192,6 @@ Check the package repos directly for their `scripting define symbols`, `namespac
 - `Skybox Series Free` [Unity Asset Store Link](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633)  
 - Used one of their assets for the skybox, should be removed outside of just what's needed for this project
 
-- `SpaceSkies Free` [Unity Asset Store Link](https://assetstore.unity.com/packages/2d/textures-materials/sky/spaceskies-free-80503)  
-- Used one of their assets for the skybox, should be removed outside of just what's needed for this project
-
 - `Configuration Manager` [Gambit Repo](https://github.com/GambitGamesLLC/unity-config-manager.git?path=Assets/Plugins/Package)  
 - Used for manipulation, saving, and loading of `.json` config files  
 
