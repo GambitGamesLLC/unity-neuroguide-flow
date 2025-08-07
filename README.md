@@ -5,7 +5,7 @@ This application is intended to be launched as a Windows process from the [unity
 
 In this experience, a ship floats on a calm ocean with a beuatiful orange sky and nearby seagulls fly alongside you. As the user makes `progress` by focusing, the wind picks up and the birds flap their wings. When the `threshold` is reached the seagulls move near the top of the mast of the ship.
 
-If the `progress` falls below the `threshold`, the `progress` value is forcibly set to a value, but in this experience we set this value to the same amount as the threshold, so its as if this feature is ignored. It's been left in place as it isn't hurting the experience.
+If the `progress` falls below the `threshold`, the `progress` value is forcibly set to a value, but in this experience we set this value to the same amount as the threshold, so its as if this feature is ignored. It's been left in place as it isn't hurting the experience and might be used in the future.
 
 <img width="412" height="235" alt="image" src="https://github.com/user-attachments/assets/80f6feb3-cb50-4ce5-81fa-3328f569f0e9" />
 
@@ -27,9 +27,22 @@ If the `progress` falls below the `threshold`, the `progress` value is forcibly 
 
 ## ARTIST NOTES
 
-- The cubes are parented to the `ZeroRotationParent` gameObject that zeroes out the world translation and rotation.
-- The `SM_Hypercube` animation plays on awake. It plays at different speeds set in a list according to the experience length set in `NeuroGuide_Main`.
-- The `Pieces_rotator` game object spins the `SM_Pieces_Hypercube_Animated` gameObject. 
+**Seagull Animations:**
+- Seagulls work with several different animators on the parent/children
+- Each animator serves a different purpose:
+- `Seagull_#_reward_placement` = changes position up and down based on reward threshold
+- `Seagull_#_Placeholder` = follows the small path to give the birds a gliding effect
+- `SK_Seagull` = the actual mesh, handles the Seagull glide and wing flaps
+- `SeagullAnimtor.cs` is a copy of the `BasicNeuroAnimator.cs`
+- `Animation State Name` is currently unused for Seagulls
+- `Anim Speed` exposed variable needs to be set to 1 on the Placeholders, and 0 on the placement objects.
+- Animator trees handle each animation transition through Booleans.
+- `SK_Seagull` wing flapping animations loop between each other to allow some variety in movement
+
+**World Animations:**
+- Ocean, wave deformers, splash particles, flag, and global post processing volumes are all tied to a `BasicNeuroAnimator.cs` on a `[NEURO LOGIC]` gameObject.
+- All sails are tied to a `NeuroLoopAnimator.cs` that plays a continuous looped animation, controlling wind speed variables.
+- These animations play when positive input is given, but are stopped upon negative input.
 
 ---
 
@@ -46,7 +59,7 @@ If the `progress` falls below the `threshold`, the `progress` value is forcibly 
 
 ## NEUROGUIDE SCORE, PROGRESS & LENGTH IN MORE DETAIL
 
-This NeuroGuide `Energy` app listens for updates from the `NeuroGuideAnimationExperience` script within the `NeuroGuideManager` package and changes the visuals accordingly.
+This NeuroGuide `Flow` app listens for updates from the `NeuroGuideAnimationExperience` script within the `NeuroGuideManager` package and changes the visuals accordingly.
 
 - When the user is focused in the NeuroGuide, this increases the score value
 - When the user loses focus, this decreases the score value
@@ -59,12 +72,13 @@ This NeuroGuide `Energy` app listens for updates from the `NeuroGuideAnimationEx
 ## NEUROGUIDE ANIMATION EXPERIENCE - THRESHOLD IN DETAIL
 
 - When the current progress goes above or below a normalized 0-1 `threshold` value, an event is called in our `INeuroGuideAnimationExperienceInteractable` interface.
-- In the `Energy` app, this threshold is reached after forming the cube and spinning the cube face three times, this is around 90% through the experience.
-- This threshold callback system is used to change the state of the experience (in this case, the energy cube enters its final glowing state)  
+- In the `Flow` app, this is around 80% through the experience.
+- This threshold callback system is used to change the state of the experience (in this case, the seagulls rise near the mast of the ship)  
 
-- In the `Energy` app, we have a script in our Main scene, called `ChangeAnimationWhenScoreFallsBelowThreshold`. This script listens for when our progress falls below the threshold.
+- In the `Flow` app, we have a script in our Main scene, called `ChangeAnimationWhenScoreFallsBelowThreshold`. This script listens for when our progress falls below the threshold.
 - If the progress falls below the threshold, we then forcibly set the progress to a preset normalized 0-1 value, which puts the user at an earlier state of progress within the experience.
-- For the `Energy` experience, this forces the user to spin the cube face two more times before it passes the threshold again and enters the glowing energy state.
+- For the `Flow` experience, this is unused as it sets your progress to the same as the threshold, so its as if nothing happened.
+- This logic is kept around in case we end up using it in a client requested update.
 
 ---
 
@@ -105,7 +119,7 @@ void OnDataUpdate( float normalizedValue );
 
 ## PROCESS COMMAND LINE VALUE INSTRUCTIONS
 
-NeuroGuide experiences like `Energy` can have their settings variables passed in by the NeuroGuide Launcher process.
+NeuroGuide experiences like `Flow` can have their settings variables passed in by the NeuroGuide Launcher process.
 
 - When this project is launched normally, without being started from the NeuroGuide launcher, it will use variables setup within the Unity editor.
 - These default variables are located on the `Main` component, present in the only scene used by this app.
@@ -132,15 +146,15 @@ This configuration file only exists as part of that repository and is not stored
 	"config": {
 		"version": 2,
 		"timestamp": "2025-07-28 12:00:00",
-		"path": "%LOCALAPPDATA%\\M3DVR\\Launcher\\Energy.json"
+		"path": "%LOCALAPPDATA%\\M3DVR\\Launcher\\Flow.json"
 	},
 	"app": {
 		"name": "Energy",
-		"path": "%LOCALAPPDATA%\\M3DVR\\Energy\\Energy.exe",
-		"length": 3,
+		"path": "%LOCALAPPDATA%\\M3DVR\\Flow\\Flow.exe",
+		"length": 0.7,
 		"debug": true,
 		"logs": false,
-		"threshold": 0.9
+		"threshold": 0.8
 	}
 }
 ```
